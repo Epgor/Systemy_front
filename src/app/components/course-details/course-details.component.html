@@ -1,0 +1,30 @@
+<button type="button" 
+    (click)="goBack()">
+    Cofnij
+</button>
+<button type="button" 
+    >
+    Rozpocznij Kurs
+</button>
+<div *ngIf="course" class="left-pad">
+    
+    <h2>{{course.title | uppercase}} </h2>
+    <div><span>id: </span>{{course.id}}</div>
+    <div>
+      <label for="course-title">Nazwa Kursu: </label>
+      <input id="course-title" [(ngModel)]="course.title" placeholder="title"/>
+    </div>
+    <div>
+        <label for="course-desc">Opis Kursu:</label>
+    </div>
+    <span>{{course.description}}</span>
+    <div><p></p></div>
+    <div>
+        <textarea id="course-desc" [(ngModel)]="course.description" 
+        placeholder="description" rows="10" cols="80">
+        </textarea>
+    </div>
+    <button type="button" (click)="save(course)">Zapisz</button>
+    <button type="button" routerLink="/edition/{{course.id}}">Edycja</button>
+    
+</div>

@@ -1,0 +1,7 @@
+<h2>Polecane Kursy</h2>
+<div class="heroes-menu">
+    <a *ngFor="let course of courses"
+    routerLink="/detail/{{course.id}}">
+        {{course.title}}
+    </a>
+</div>

@@ -1,0 +1,7 @@
+.btn-f
+{
+    position: center;
+	justify-content: center;
+    text-align: center;
+    display: flex;
+}

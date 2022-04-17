@@ -1,0 +1,25 @@
+<body>
+<div class="main">  	
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="signup">
+            <form>
+                <label for="chk" aria-hidden="true">Register</label>
+                <input type="text" name="txt" placeholder="User name" required="" #name>
+                <input type="email" name="email" placeholder="Email" required="" #email>
+                <input type="password" name="pswd" placeholder="Password" required="" #pass>
+                <input type="password" name="confpswd" placeholder="Confirm Password" required="" #confpass>
+                <button (click)="clickRegister(name.value, email.value, pass.value, confpass.value)">Sign up</button>
+            </form>
+        </div>
+
+        <div class="login">
+            <form>
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="email" name="email" placeholder="Email" required="" #login>
+                <input type="password" name="pswd" placeholder="Password" required="" #password>
+                <button (click)="clickLogin(login.value, password.value)">Login</button>
+            </form>
+        </div>
+</div>
+</body>

@@ -1,0 +1,6 @@
+.btn {
+    position: center;
+	justify-content: center;
+    text-align: center;
+    display: flex;
+}
