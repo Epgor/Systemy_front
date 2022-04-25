@@ -14,6 +14,7 @@ export class LoginService {
   private isLoggedIn: boolean = true;
   private subject = new Subject<any>();
   private token: string ="";
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -58,11 +59,11 @@ export class LoginService {
   }
 
   tryLogin(login: string, password: string) {
+
     const httpOptions ={
       'Content-Type': 'application/json',
       observe: 'response' as const,
       responseType: 'text' as const,
-
     }
 
     let url = "https://localhost:7038/api/account/login";
@@ -132,5 +133,14 @@ export class LoginService {
     window.alert('Hello '+Object.values(returned)[1]
     +'\nYour role is: '+Object.values(returned)[2]);
     
+  }
+
+  getMyType()
+  {
+    this.getTokenStorage();
+    
+    var returned = this.parseJwt(this.token);
+
+    window.alert('Your Learnig Type is : '+Object.values(returned)[3]);
   }
 }

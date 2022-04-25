@@ -1,0 +1,11 @@
+div {
+    border-style: solid;
+    border-color: red;
+    margin:auto;
+}
+.form  {
+    border-style:double !important;
+    max-width: 33%;
+    
+    margin:auto;
+}

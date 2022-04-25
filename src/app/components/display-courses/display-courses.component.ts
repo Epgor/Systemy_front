@@ -15,6 +15,10 @@ export class DisplayCoursesComponent implements OnInit {
   constructor(private courseService: CourseService) { }
   //init komponentu
   ngOnInit(): void {
+    this.courseService.refreashNeeded$
+    .subscribe(() => {
+      this.getCourses();
+    })
     this.getCourses();
   }
   //zaznaczanie kursu
@@ -27,13 +31,14 @@ export class DisplayCoursesComponent implements OnInit {
 
   delete(course: Course): void {
     this.courses = this.courses.filter(h => h !== course);
-    this.courseService.deleteCourse(course.id);
+    this.courseService.deleteCourse(course.id).subscribe();
   }
 
   add(title: string): void {
     title = title.trim();
     if (!title) {return;}
-    this.courseService.addCourse(title);
+    this.courseService.addCourse(title).subscribe();
+
     
   }
 

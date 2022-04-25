@@ -19,6 +19,8 @@ import { CourseEditionMainComponent } from './components/course-edition-main/cou
 import { EyeEditComponent } from './components/eye-edit/eye-edit.component';
 import { EarEditComponent } from './components/ear-edit/ear-edit.component';
 import { WorkEditComponent } from './components/work-edit/work-edit.component';
+import { SingleQuestionComponent } from './components/single-question/single-question.component';
+import { AddContentComponent } from './components/add-content/add-content.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { WorkEditComponent } from './components/work-edit/work-edit.component';
     CourseEditionMainComponent,
     EyeEditComponent,
     EarEditComponent,
-    WorkEditComponent
+    WorkEditComponent,
+    SingleQuestionComponent,
+    AddContentComponent
   ],
   imports: [
     BrowserModule,

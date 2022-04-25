@@ -42,4 +42,10 @@ export class AppComponent {
   whoAmI(){
     this.loginService.helloUser();
   }
+
+  myType(){
+
+    this.loginService.getMyType()
+    //this.requestService.getUserTy;pe();
+  }
 }

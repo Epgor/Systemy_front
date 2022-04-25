@@ -17,14 +17,17 @@
     <div>
         <label for="course-desc">Opis Kursu:</label>
     </div>
-    <span>{{course.description}}</span>
+    <span>{{course.desc}}</span>
     <div><p></p></div>
     <div>
-        <textarea id="course-desc" [(ngModel)]="course.description" 
+        <textarea id="course-desc" [(ngModel)]="course.desc" 
         placeholder="description" rows="10" cols="80">
         </textarea>
     </div>
     <button type="button" (click)="save(course)">Zapisz</button>
+
     <button type="button" routerLink="/edition/{{course.id}}">Edycja</button>
+
+    <button type="button" routerLink="/course/{{course.id}}/content">Dodaj zawartość</button>
     
 </div>
