@@ -13,6 +13,8 @@ import { AddContentComponent } from './components/add-content/add-content.compon
 import { CourseContentComponent } from './components/course-content/course-content.component';
 import { ArticleComponent } from './components/article/article.component';
 import { QuizComponent } from './components/quiz/quiz.component';
+import { GlitchComponent } from './components/glitch/glitch.component';
+import { BootstrapPageComponent } from './components/bootstrap-page/bootstrap-page.component';
 
 
 const routes: Routes = [
@@ -30,6 +32,8 @@ const routes: Routes = [
   { path: 'course/:id/content/lining', component: CourseContentComponent},
   { path: 'article/:id', component: ArticleComponent },
   { path: 'quiz/:id', component: QuizComponent },
+  { path: 'glitch', component: GlitchComponent},
+  { path: 'bootstrap-page', component: BootstrapPageComponent},
   { path: '**', redirectTo: '/dashboard'},
 ];
 

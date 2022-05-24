@@ -9,10 +9,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let list of lista">
-            <th scope="row">{{list[0]}}</th>
-            <td>{{list[1]}}</td>
-            <td><button routerLink="/article/{{1}}"> Otwórz </button></td>
+        <tr *ngFor="let list of articleList">
+            <th scope="row">{{list.id}}</th>
+            <td>{{list.text}}</td>
+            <td><button routerLink="/article/{{list.id}}"> Otwórz </button></td>
         </tr>
     </tbody>
 </table>
