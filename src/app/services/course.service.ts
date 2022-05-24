@@ -22,17 +22,18 @@ export class CourseService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      window.alert(
-        error.error);
+
+    if (error.status !== 0) {
+      
+      let responseErrors = Object.entries(error.error.errors)
+      .map((x: any) => {return(`${x[1][0]}\n`)});
+
+      let logResp = `${error.name} : ${error.status}\n ${responseErrors}`;
+      window.alert(logResp);
     }
-    // Return an observable with a user-facing error message.
-    return throwError(() => new Error('Something bad happened; please try again later.'));
+    
+    return throwError(() => new Error(error.message)  )
+  
   }
   constructor(private http: HttpClient) { }
 
@@ -89,5 +90,10 @@ export class CourseService {
         catchError(this.handleError)
       })
     )
+  }
+
+  addCourseDetail(mainCourse: number, isEye: boolean, isEar: boolean, isWork: boolean, text: string ){
+    let url = '';
+    console.warn(`Created ${isEar}|${isEye}|${isWork} for Course: ${mainCourse}, with title ${text}`)
   }
 }

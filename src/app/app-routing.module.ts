@@ -9,7 +9,11 @@ import { EarEditComponent } from './components/ear-edit/ear-edit.component';
 import { WorkEditComponent } from './components/work-edit/work-edit.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { SingleQuestionComponent } from './components/single-question/single-question.component';
-import { AddContentComponent } from './components/add-content/add-content.component'
+import { AddContentComponent } from './components/add-content/add-content.component';
+import { CourseContentComponent } from './components/course-content/course-content.component';
+import { ArticleComponent } from './components/article/article.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+
 
 const routes: Routes = [
   { path: 'courses', component: DisplayCoursesComponent },
@@ -22,7 +26,11 @@ const routes: Routes = [
   { path: 'work/:id', component: WorkEditComponent},
   { path: 'login', component: LoginPageComponent},
   { path: 'question', component: SingleQuestionComponent },
-  { path: 'course/:id/content', component: AddContentComponent }
+  { path: 'course/:id/content', component: AddContentComponent },
+  { path: 'course/:id/content/lining', component: CourseContentComponent},
+  { path: 'article/:id', component: ArticleComponent },
+  { path: 'quiz/:id', component: QuizComponent },
+  { path: '**', redirectTo: '/dashboard'},
 ];
 
 @NgModule({

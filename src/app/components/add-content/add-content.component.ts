@@ -18,10 +18,19 @@ export class AddContentComponent implements OnInit {
     private courseService: CourseService,
     private location: Location
   ) { }
+
+  text: string = "";
+  isEye: boolean = false;
+  isEar: boolean = false;
+  isWork: boolean = false;
   
 
   ngOnInit(): void {
     this.getCourse();
+  }
+  
+  goBack(): void {
+    this.location.back();
   }
   getCourse(): void {
     const id = Number(this.route
@@ -29,8 +38,12 @@ export class AddContentComponent implements OnInit {
 
     this.courseService.getCourse(id)
       .subscribe(course => this.course = course);
+  }
 
-
+  create(){
+    if (this.course)
+      this.courseService.addCourseDetail(
+        this.course.id, this.isEye, this.isEar, this.isWork, this.text);
   }
 
 }

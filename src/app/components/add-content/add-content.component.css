@@ -1,11 +1,11 @@
 div {
-    border-style: solid;
-    border-color: red;
+    /*border-style: solid;*/
+    /*border-color: red;*/
     margin:auto;
 }
 .form  {
-    border-style:double !important;
-    max-width: 33%;
+    /*border-style:double !important;*/
+    max-width: 50%;
     
     margin:auto;
 }

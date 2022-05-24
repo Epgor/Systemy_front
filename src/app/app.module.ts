@@ -21,6 +21,19 @@ import { EarEditComponent } from './components/ear-edit/ear-edit.component';
 import { WorkEditComponent } from './components/work-edit/work-edit.component';
 import { SingleQuestionComponent } from './components/single-question/single-question.component';
 import { AddContentComponent } from './components/add-content/add-content.component';
+import { CourseContentComponent } from './components/course-content/course-content.component';
+import { ArticleComponent } from './components/article/article.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { QuestionComponent } from './components/question/question.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { QuizResultDialogComponent } from './components/quiz-result-dialog/quiz-result-dialog.component';
+
 
 
 @NgModule({
@@ -41,15 +54,28 @@ import { AddContentComponent } from './components/add-content/add-content.compon
     EarEditComponent,
     WorkEditComponent,
     SingleQuestionComponent,
-    AddContentComponent
+    AddContentComponent,
+    CourseContentComponent,
+    ArticleComponent,
+    QuizComponent,
+    QuestionComponent,
+    QuizResultDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, CourseContentComponent]
 })
 export class AppModule { }

@@ -1,25 +1,32 @@
-<p>add-content works!</p>
-<h2>{{course?.title}}</h2>
+
+<button type="button" 
+(click)="goBack()">
+Cofnij
+</button>
 <div class="form">
+    <h2>{{course?.title}}</h2>
     <fieldset>
         <legend>Tworzenie Kursu</legend>
         <div>
-            <input id="course-title" placeholder="Text"/>
+            <input id="course-title" placeholder="Text" [(ngModel)]="text">
         </div>
         <div>
             <label for="scales">Typ Kursu:</label>
         </div>
         <div>
-            <input type="checkbox" id="eye" name="eye">
+            <input type="checkbox" id="eye" name="eye" [(ngModel)]="isEye">
             <label for="eye">Wzrokowiec</label>
         </div>
         <div>
-            <input type="checkbox" id="ear" name="ear">
+            <input type="checkbox" id="ear" name="ear" [(ngModel)]="isEar">
             <label for="ear">Słuchowiec</label>
         </div>
         <div>
-            <input type="checkbox" id="work" name="work">
+            <input type="checkbox" id="work" name="work" [(ngModel)]="isWork">
             <label for="work">Działaniowiec</label>
+        </div>
+        <div>
+            <button type="button"(click)="create()">Dodaj</button>
         </div>
     </fieldset>
     <div>

@@ -2,8 +2,7 @@
     (click)="goBack()">
     Cofnij
 </button>
-<button type="button" 
-    >
+<button *ngIf="course" type="button" routerLink="/course/{{course.id}}/content/lining">
     Rozpocznij Kurs
 </button>
 <div *ngIf="course" class="left-pad">
