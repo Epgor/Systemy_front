@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Score } from 'src/app/score';
+import { Score } from 'src/app/models/score';
 @Component({
   selector: 'app-quiz-result-dialog',
   templateUrl: './quiz-result-dialog.component.html',

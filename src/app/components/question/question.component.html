@@ -1,8 +1,13 @@
-<mat-card *ngIf="questionIndex == 0">
+<mat-card >
 <mat-card-title>
-    <div id="wynik">Powodzenia!</div>
+    <div id="wynik">
+        <div *ngIf="questionIndex == 0">
+            Powodzenia!
+        </div>
+    </div>
 </mat-card-title>
 </mat-card>
+
 <div *ngIf="!isCompleted && PytaniaTest.length != 0" class="third">
     <mat-card class="example-card">
 

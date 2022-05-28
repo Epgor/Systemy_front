@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { Answer } from 'src/app/answer';
+import { Answer } from 'src/app/models/answer';
 import { QuizService } from 'src/app/services/quiz.service';
-import { Question } from '../../question';
-import { Score } from 'src/app/score';
+import { Question } from '../../models/question';
+import { Score } from 'src/app/models/score';
 import { MatDialog } from '@angular/material/dialog';
 import { QuizResultDialogComponent } from '../quiz-result-dialog/quiz-result-dialog.component';
 import { ActivatedRoute } from '@angular/router';
@@ -51,11 +51,11 @@ export class QuestionComponent implements OnInit {
   }
 
   checkAnswer(){
+    
     this.quizService.checkAnswers(this.PytaniaTest, this.quizId).subscribe(
       response => {
         //console.warn(response);
         this.score = response;
-
         //console.warn(this.PytaniaTest);
         //console.warn(this.score);
         let x = document.getElementById("wynik");

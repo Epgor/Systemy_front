@@ -1,7 +1,23 @@
-<h2>Polecane Kursy</h2>
-<div class="heroes-menu">
-    <a *ngFor="let course of courses"
-    routerLink="/detail/{{course.id}}">
-        {{course.title}}
-    </a>
+
+<mat-card-title><h1>Polecane Kursy</h1></mat-card-title>
+<div class="d-flex flex-md-row justify-content-around flex-column">
+<div *ngFor="let course of courses" >
+<mat-card >
+    <mat-card-header>
+      <mat-card-title>{{course.title}}</mat-card-title>
+      <mat-card-subtitle>No. {{course.id}}</mat-card-subtitle>
+    </mat-card-header >
+    <div class="d-flex justify-content-center">
+    <img mat-card-image src={{course.logoURL}} alt="Photo of a course">
+</div>
+    <mat-card-content>
+      <p>
+        {{course.desc}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button routerLink="/detail/{{course.id}}">Otwórz</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 </div>

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Course } from '../../course';
+import { Course } from '../../models/course';
 import { CourseService } from '../../services/course.service';
 @Component({
   selector: 'app-ear-edit',

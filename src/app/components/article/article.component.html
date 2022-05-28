@@ -1,7 +1,7 @@
 
 
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" *ngIf="listBlock.length == 0">
     <div class="d-flex flex-column">
         <div class="p-2"> Numer artykułu{{this.id}}</div>
         <mat-card>
@@ -19,3 +19,45 @@
         
     </div>
 </div>
+<div class="d-flex justify-content-center" *ngIf="listBlock.length != 0">
+    <div class="d-flex flex-column">
+        <div class="p-2"> Numer artykułu{{this.id}}</div>
+        <mat-card>
+            <mat-card-content *ngFor="let block of listBlock">
+
+                <mat-card-content *ngIf="block.type == 1">
+                    <mat-card-subtitle>
+                        {{block.title}}
+                    </mat-card-subtitle>
+                    <mat-card-content>
+                        <p class="text-justify">{{block.content}}</p>
+                    </mat-card-content>
+                </mat-card-content>
+
+                <mat-card-content *ngIf="block.type == 2">
+                    <mat-card-subtitle>
+                        {{block.title}}
+                    </mat-card-subtitle>
+                    <mat-card-content>
+                        <img mat-card-image src={{block.content}} alt="Photo {{block.title}}">
+                    </mat-card-content>
+                </mat-card-content>
+
+                <mat-card-content *ngIf="block.type == 3">
+                    <mat-card-subtitle>
+                        {{block.title}}
+                    </mat-card-subtitle>
+
+                    <iframe [src]="makeSafe(block.content)" style="width:100%;height:700px;"></iframe><!--unsafe XSS -->
+                </mat-card-content>
+
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="goBack()">Powrót</button>
+
+            </mat-card-actions>
+        </mat-card>
+        
+    </div>
+</div>
+

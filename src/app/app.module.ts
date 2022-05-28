@@ -33,6 +33,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { QuizResultDialogComponent } from './components/quiz-result-dialog/quiz-result-dialog.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 
@@ -72,7 +73,8 @@ import { QuizResultDialogComponent } from './components/quiz-result-dialog/quiz-
     MatListModule,
     MatButtonModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    PdfViewerModule
 
   ],
   providers: [],

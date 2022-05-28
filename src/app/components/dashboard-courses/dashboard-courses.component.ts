@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../../services/course.service'; 
-import { Course } from '../../course';
+import { Course } from '../../models/course';
 
 @Component({
   selector: 'app-dashboard-courses',
@@ -19,8 +19,11 @@ export class DashboardCoursesComponent implements OnInit {
 
   getCourses(): void {
     this.courseService.getCourses()
-    .subscribe(courses => 
-      this.courses = courses.slice(0,3));
+    .subscribe(courses => {
+      this.courses = courses.slice(0,3);
+      console.warn(this.courses);
+    });
+    
   }
 
 }

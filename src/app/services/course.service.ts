@@ -2,7 +2,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, Subject, throwError, of, tap } from 'rxjs';
-import { Course } from '../course';
+import { Course } from '../models/course';
 
 const httpOptions ={
   'Content-Type': 'application/json',

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { QuizService } from 'src/app/services/quiz.service';
-import { Quiz } from 'src/app/quiz';
+import { Quiz } from 'src/app/models/quiz';
 import { ArticleService } from 'src/app/services/article.service';
-import { Article } from 'src/app/article';
+import { Article } from 'src/app/models/article';
 @Component({
   selector: 'app-course-content',
   templateUrl: './course-content.component.html',

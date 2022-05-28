@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angul
 import { ConstantPool } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
-import { User } from '../user';
+import { User } from '../models/user';
 import jwt_decode from 'jwt-decode';
 
 

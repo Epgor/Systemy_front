@@ -2,7 +2,8 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, Subject, throwError, of, tap } from 'rxjs';
-import { Article } from '../article';
+import { Article } from '../models/article';
+import { ArticleBlock } from '../models/article-block';
 const httpOptions ={
   'Content-Type': 'application/json',
   observe: 'body' as const,
@@ -48,6 +49,17 @@ export class ArticleService {
     return articles;
   }
 
+  getBlocks(articleId: number): Observable<ArticleBlock[]> {
+    
+    let url = `https://localhost:7038/api/article/blocks/${articleId}`;
+
+    const blocks = this.http.get<ArticleBlock[]>(url, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    )
+
+    return blocks;
+  }
   
 
 }
