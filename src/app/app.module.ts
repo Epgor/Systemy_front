@@ -34,6 +34,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { QuizResultDialogComponent } from './components/quiz-result-dialog/quiz-result-dialog.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 
 
@@ -74,7 +75,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    PdfViewerModule
+    PdfViewerModule,//out
+    MatIconModule
 
   ],
   providers: [],

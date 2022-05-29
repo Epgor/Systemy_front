@@ -5,17 +5,17 @@
   
     <!-- (click) passes input value to add() and then clears the input -->
     <button type="button" class="add-button" (click)="add(courseName.value); courseName.value=''">
-      Dodaj Kurs
+      <mat-icon>add</mat-icon>
     </button>
-  </div>
+</div>
 <div class="center">
-<ul class="courses">
-    <li *ngFor="let course of courses">
-        <a routerLink="/detail/{{course.id}}">
-            <span class="badge">{{course.id}}</span>{{course.title}}
-        </a>
-        <button type="button" class="delete" title="delete course"
-        (click)="delete(course)">x</button>
-    </li>
-</ul>
+  <ul class="courses">
+      <li *ngFor="let course of courses">
+          <a routerLink="/detail/{{course.id}}">
+              <span class="badge">{{course.id}}</span>{{course.title}}
+          </a>
+          <button type="button" class="delete" title="delete course"
+          (click)="delete(course)"><mat-icon>delete</mat-icon></button>
+      </li>
+  </ul>
 </div>
