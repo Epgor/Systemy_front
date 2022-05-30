@@ -35,6 +35,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { QuizResultDialogComponent } from './components/quiz-result-dialog/quiz-result-dialog.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { InitQuizComponent } from './components/init-quiz/init-quiz.component';
+import { MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -61,7 +63,8 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
     ArticleComponent,
     QuizComponent,
     QuestionComponent,
-    QuizResultDialogComponent
+    QuizResultDialogComponent,
+    InitQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatDialogModule,
     PdfViewerModule,//out
-    MatIconModule
+    MatIconModule,
+    MatRadioModule
 
   ],
   providers: [],

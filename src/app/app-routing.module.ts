@@ -15,6 +15,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { GlitchComponent } from './components/glitch/glitch.component';
 import { BootstrapPageComponent } from './components/bootstrap-page/bootstrap-page.component';
+import { InitQuizComponent } from './components/init-quiz/init-quiz.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'quiz/:id', component: QuizComponent },
   { path: 'glitch', component: GlitchComponent},
   { path: 'bootstrap-page', component: BootstrapPageComponent},
+  { path: 'init-quiz', component: InitQuizComponent },
   { path: '**', redirectTo: '/dashboard'},
 ];
 
