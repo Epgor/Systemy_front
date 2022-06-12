@@ -1,0 +1,30 @@
+div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    position: center;
+    font-size:xx-large;
+    text-align: center;
+    color: white;
+    box-shadow: 5px 20px 50px #0005;
+    border-radius: 0.5rem;
+  }
+  
+  @keyframes example {
+    0%   {background-color: #573b8a;}
+    18%  {background-color: #462a79;}
+    36%  {background-color: #351968;}
+    50% {background-color: #240857;}
+    66%  {background-color: #351968;}
+    88%  {background-color: #462a79;}
+    100%   {background-color: #573b8a;}
+  }
+  .center {
+    margin: auto;
+    width: 50%;
+    /*border: 3px solid white;*/
+    padding: 5px;
+  }

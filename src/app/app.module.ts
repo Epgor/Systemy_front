@@ -37,9 +37,25 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { InitQuizComponent } from './components/init-quiz/init-quiz.component';
 import { MatRadioModule} from '@angular/material/radio';
-
-
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HeaderComponent } from './navigation/header/header.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
+import { EditArticleComponent } from './components/edit-article/edit-article.component';
+import { EditQuizComponent } from './components/edit-quiz/edit-quiz.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ForumComponent } from './components/forum/forum.component';
+import { CzatComponent } from './components/czat/czat.component';
+import { PostyComponent } from './components/posty/posty.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { PanelComponent } from './components/panel/panel.component';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +80,15 @@ import { MatRadioModule} from '@angular/material/radio';
     QuizComponent,
     QuestionComponent,
     QuizResultDialogComponent,
-    InitQuizComponent
+    InitQuizComponent,
+    HeaderComponent,
+    SidenavListComponent,
+    EditArticleComponent,
+    EditQuizComponent,
+    ForumComponent,
+    CzatComponent,
+    PostyComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,
@@ -80,10 +104,27 @@ import { MatRadioModule} from '@angular/material/radio';
     MatDialogModule,
     PdfViewerModule,//out
     MatIconModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatSlideToggleModule,
+    MatTableModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatButtonToggleModule,
+    AngularEditorModule,
+    MatProgressBarModule,
+    MatSelectModule
 
   ],
   providers: [],
-  bootstrap: [AppComponent, CourseContentComponent]
+  bootstrap: [AppComponent, CourseContentComponent],
+  exports: [
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule
+  ]
 })
 export class AppModule { }

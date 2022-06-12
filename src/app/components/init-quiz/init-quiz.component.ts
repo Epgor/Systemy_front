@@ -393,7 +393,7 @@ export class InitQuizComponent implements OnInit {
     }
 
     window.alert(`Typ kursanta: ${typKursantaText} \nKod: ${typKursanta}`);
-
+    localStorage.setItem('firstTime', "false");
     //this.isCompleted = true; 
   }
 

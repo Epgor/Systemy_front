@@ -1,21 +1,50 @@
-<h2 class="center"> Lista kursów </h2>
-<div>
-    <label for="new-course">Nazwa kursu: </label>
-    <input id="new-course" #courseName />
-  
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button type="button" class="add-button" (click)="add(courseName.value); courseName.value=''">
-      <mat-icon>add</mat-icon>
-    </button>
+<br>
+<div class="ms-3" *ngIf="imAdmin()">
+    <mat-icon> border_color</mat-icon>
+    <mat-slide-toggle color="primary" [(ngModel)]="isChecked" class="pull-right d-block" ></mat-slide-toggle>
+    
 </div>
-<div class="center">
-  <ul class="courses">
-      <li *ngFor="let course of courses">
-          <a routerLink="/detail/{{course.id}}">
-              <span class="badge">{{course.id}}</span>{{course.title}}
-          </a>
-          <button type="button" class="delete" title="delete course"
-          (click)="delete(course)"><mat-icon>delete</mat-icon></button>
-      </li>
-  </ul>
-</div>
+<div class="ms-3 text text-center mt-3">
+  <h2 class="center"> Lista kursów </h2>
+  <div class="d-flex align-items-center justify-content-center mb-3" *ngIf="isChecked">
+      <label for="new-course" class="me-3">Nazwa kursu: </label>
+      <input id="new-course" class="w-50" #courseName />
+      
+    
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button mat-icon-button type="button" color="primary" (click)="add(courseName.value); courseName.value=''">
+        <mat-icon>add</mat-icon>
+      </button>
+  </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-3 mw-100" *ngFor="let course of courses">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <mat-button routerLink="/detail/{{course.id}}">
+                {{course.title | uppercase}}
+              </mat-button>
+            </mat-card-title>
+            <mat-card-subtitle >
+              
+                <p clss="ms-2">Id kursu: {{course.id}}</p>
+              
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="ms-3">
+            {{course.desc}}
+          </mat-card-content>
+          
+          <mat-card-actions align="end" class="p-3" *ngIf="isChecked">
+            <button mat-mini-fab type="button" color="primary" title="delete course"
+              (click)="delete(course)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>

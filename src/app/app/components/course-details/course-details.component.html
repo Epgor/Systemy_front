@@ -1,0 +1,34 @@
+<div class="d-flex align-items-center justify-content-center mt-3">
+    <mat-card *ngIf="course" class="card">
+        
+        <mat-card-header class="head">
+            <mat-card-title>{{course.title | uppercase}}</mat-card-title>
+            <mat-card-subtitle>id: {{course.id}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="ms-3 me-3">
+            <div>
+                <label for="course-title" class="me-3">Nazwa Kursu: </label>
+                <input id="course-title" [(ngModel)]="course.title" placeholder="title"/>
+            </div>
+                <label for="course-desc">Opis Kursu:</label>
+            <div>
+                <textarea id="course-desc" [(ngModel)]="course.desc" 
+                placeholder="description" rows="10" cols="80">
+                </textarea>
+            </div>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions align="end">
+            <button mat-button type="button" color="primary" (click)="save(course)">Zapisz</button>
+
+            <button mat-button type="button" color="primary" routerLink="/edition/{{course.id}}">Edycja</button>
+
+            <button mat-button type="button" color="primary" routerLink="/course/{{course.id}}/content">Dodaj zawartość</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<div class="text-center mt-5">
+    <button *ngIf="course" mat-raised-button color="primary" routerLink="/course/{{course.id}}/content/lining">
+        Rozpocznij Kurs
+    </button>
+</div>

@@ -1,0 +1,36 @@
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Nr. Lekcji</th>
+            <th scope="col">Tytuł</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let list of articleList">
+            <th scope="row">{{list.id}}</th>
+            <td>{{list.text}}</td>
+            <td><button routerLink="/article/{{list.id}}"> Otwórz </button></td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th scope="col">Nr. Testu</th>
+          <th scope="col">Tytuł</th>
+          <th scope="col"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let list of quizList">
+          <th scope="row">{{list.id}}</th>
+          <td>{{list.text}}</td>
+          <td><button routerLink="/quiz/{{list.id}}"> Rozwiąż </button></td>
+      </tr>
+  </tbody>
+</table>
+

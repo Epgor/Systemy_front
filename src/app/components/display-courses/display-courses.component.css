@@ -1,4 +1,4 @@
-/* coursesComponent's private CSS styles */
+
 .courses {
   margin: 0 0 2em 0;
   list-style-type: none;
@@ -23,19 +23,17 @@ input {
   left: .1em;
 }
 
-.courses a {
+a {
   color: #333;
   text-decoration: none;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
+
   border-radius: 4px;
   display: block;
   width: 100%;
 }
 
-.courses a:hover {
+a:hover {
+  width: auto;
   color: #2c3a41;
   background-color: #e6e6e6;
 }
@@ -44,6 +42,7 @@ input {
   background-color: #525252;
   color: #fafafa;
 }
+
 
 .courses .badge {
   display: inline-block;
@@ -87,4 +86,5 @@ button.delete {
 button.delete:hover {
   background-color: #525252;
   color: white;
-}
+} 
+

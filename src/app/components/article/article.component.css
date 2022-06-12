@@ -1,3 +1,6 @@
 div{
     max-width: 90%;
 }
+.photo-input {
+    display: none;
+  }

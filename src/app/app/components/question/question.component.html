@@ -1,0 +1,65 @@
+<mat-card >
+<mat-card-title>
+    <div id="wynik">
+        <div *ngIf="questionIndex == 0">
+            Powodzenia!
+        </div>
+    </div>
+</mat-card-title>
+</mat-card>
+
+<div *ngIf="!isCompleted && PytaniaTest.length != 0" class="third">
+    <mat-card class="example-card">
+
+        <mat-card-title>
+            
+        </mat-card-title>
+        <mat-card-content >
+            <p class="text-justify">{{questionIndex+1}}. {{PytaniaTest[questionIndex]?.questionText}}</p>
+            <!--<p class="text-justify">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>-->
+        </mat-card-content>
+        <mat-selection-list [multiple]="false">
+            <mat-list-option  *ngFor="let answer of PytaniaTest[questionIndex]?.answers">
+                <mat-card-content>
+                    <p>
+                        <mat-checkbox [color]="checkColor"
+                        [(ngModel)]="answer.IsChecked">
+                            {{answer.text}}
+                        </mat-checkbox>
+                    </p>
+                </mat-card-content>
+            </mat-list-option>
+        </mat-selection-list>
+
+    </mat-card>
+    <mat-card>
+        <mat-card-actions class="d-flex align-self-end justify-content-between">
+            <button [disabled]="questionIndex == 0" mat-raised-button color="primary" (click)="previous()"><</button>
+            <button mat-raised-button color="primary" (click)="checkAnswer()">
+                Wyślij
+            </button>
+            <button [disabled]="questionIndex == PytaniaTest.length-1" mat-raised-button color="primary" (click)="next()">></button>
+            </mat-card-actions>
+    </mat-card>
+
+</div>
+<div *ngIf="isCompleted" class="third">
+    <mat-card>
+        <mat-card-content>
+            Ukończyłeś Quiz.
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="goBack()">Powrót do menu</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<div *ngIf="PytaniaTest.length == 0">
+    <mat-card>
+        <mat-card-content>
+            Quiz jest pusty.
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="goBack()">Powrót do menu</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

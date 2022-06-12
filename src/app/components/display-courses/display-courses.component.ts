@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Course } from '../../models/course';
-import { CourseService } from '../../services/course.service'
+import { CourseService } from '../../services/course.service';
+import { LoginService } from 'src/app/services/login.service';
+
 
 @Component({
   selector: 'app-display-courses',
@@ -11,8 +13,10 @@ import { CourseService } from '../../services/course.service'
 export class DisplayCoursesComponent implements OnInit {
 
   courses: Course[] = [];
+  isChecked: boolean = false;
   //wstrzykujemy serwis kursów
-  constructor(private courseService: CourseService) { }
+  constructor(private courseService: CourseService,
+    private loginService: LoginService) { }
   //init komponentu
   ngOnInit(): void {
     this.courseService.refreashNeeded$
@@ -39,7 +43,15 @@ export class DisplayCoursesComponent implements OnInit {
     if (!title) {return;}
     this.courseService.addCourse(title).subscribe();
 
-    
   }
+
+  imAdmin(): boolean
+  {
+    if(this.loginService.getRole() == 'Admin')
+      return true
+    return false
+  }
+
+
 
 }

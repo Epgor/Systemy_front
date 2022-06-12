@@ -1,18 +1,20 @@
-
-.app-course-component{
-    margin: auto;
-}
-.border-box {
-    border-style: solid;
-    border-color: black;
-    margin:auto;
-    max-width: 50%;
-
+table {
+  width: 100%;
 }
 
-.border-box-center {
-    justify-content: center;
-    border-style: solid;
-    border-color: black;
-    margin:auto;
+.mat-form-field {
+  font-size: 16px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.mat-elevation-z8
+{
+  min-width: 90%;
+}
+.szeroka{
+  min-width: 500px;
 }

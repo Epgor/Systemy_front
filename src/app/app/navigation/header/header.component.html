@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+    <div fxHide fxShow.xs fxShow.sm>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/dashboard">{{title}}</a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide fxShow.gt-sm>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+            <li>
+                <button mat-button  routerLink="/courses">Kursy</button>
+            </li>
+            <li>
+                <button mat-button routerLink="/dashboard">Strona Główna</button>
+            </li>
+            <li>
+                <button mat-button (click)="logOut()">Wyloguj</button>
+            </li>
+            <li>
+                <button mat-button (click)="whoAmI()">Kim Jestem?</button>
+            </li>
+            <li>
+                <button mat-button (click)="myType()">Mój Typ?</button>
+            </li>
+            <li>
+                <button mat-button routerLink="/init-quiz">VAK quiz</button>
+            </li>
+            <li>
+                <button mat-button><mat-icon>format_color_fill</mat-icon></button>
+            </li>
+        </ul>
+    </div>
+  </mat-toolbar>

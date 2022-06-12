@@ -1,0 +1,18 @@
+
+.app-course-component{
+    margin: auto;
+}
+.border-box {
+    border-style: solid;
+    border-color: black;
+    margin:auto;
+    max-width: 50%;
+
+}
+
+.border-box-center {
+    justify-content: center;
+    border-style: solid;
+    border-color: black;
+    margin:auto;
+}

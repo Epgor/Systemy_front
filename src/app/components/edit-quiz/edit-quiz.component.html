@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+            <mat-card class="col-sm-3 mt-3" *ngIf="quiz">
+                <mat-card-title class="mb-3">Edytuj quiz</mat-card-title>
+                <mat-card-content>
+                    <p>
+                        <!--{{article.text}}-->
+                        Tytuł (do zmiany)
+                    </p>
+                    <div class="example-full-width" appearance="fill">
+                        <mat-label>bleble</mat-label>
+                        <input matInput [(ngModel)]="quiz.text">
+                    </div>
+                </mat-card-content>
+                <mat-divider></mat-divider>
+                <mat-card-actions align="end">
+                    <button mat-button color="primary" type="button" (click)="save()">Zapisz</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>    
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>

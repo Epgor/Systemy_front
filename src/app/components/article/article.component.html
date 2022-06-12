@@ -1,5 +1,10 @@
 
-
+<br>
+<div class="ms-3" *ngIf="imAdmin()">
+    <mat-icon> border_color</mat-icon>
+    <mat-slide-toggle color="primary" [(ngModel)]="isChecked" class="pull-right d-block" ></mat-slide-toggle>
+    
+</div>
 
 <div class="d-flex justify-content-center" *ngIf="listBlock.length == 0">
     <div class="d-flex flex-column">
@@ -30,7 +35,9 @@
                         {{block.title}}
                     </mat-card-subtitle>
                     <mat-card-content>
-                        <p class="text-justify">{{block.content}}</p>
+
+                            <div [innerHTML]="block.content"></div>
+
                     </mat-card-content>
                 </mat-card-content>
 
@@ -51,6 +58,16 @@
                     <iframe [src]="makeSafe(block.content)" style="width:100%;height:700px;"></iframe><!--unsafe XSS -->
                 </mat-card-content>
 
+                <mat-card-content *ngIf="block.type == 4">
+                    <mat-card-subtitle>
+                        {{block.title}}
+                    </mat-card-subtitle>
+                    <mat-card-content>
+                        <button mat-stroked-button color="primary" (click)="pobierz(block.content)">Pobierz</button>
+                        {{block.content}}
+                    </mat-card-content>
+                </mat-card-content>
+            <button mat-button (click)="deleteBlock(block.id)" *ngIf="isChecked"><mat-icon>delete_outline</mat-icon></button>
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button color="primary" (click)="goBack()">Powrót</button>
@@ -60,4 +77,127 @@
         
     </div>
 </div>
+<!--
+id: number,
+title: string,
+content: string,
+type: number,
+-->
+<div *ngIf="isChecked">
+    <mat-card>
+        <mat-card-content>
+            <div>
+                <div class="example-full-width" appearance="fill">
+                    <mat-label>Tytuł bloku  </mat-label>
+                    <input matInput class="w-100" [(ngModel)]="blockCreate.title">
+                </div>
+                <br>
+                <label for="scales"  class="mb-2">Typ zawartości:</label>
+            </div>
+            <p>             
+                <mat-button-toggle-group name="blockType" aria-label="Font Style" #group="matButtonToggleGroup">
+                  <mat-button-toggle value="1">Tekst</mat-button-toggle>
+                  <mat-button-toggle value="2">Obraz</mat-button-toggle>
+                  <mat-button-toggle value="3">Pdf</mat-button-toggle>
+                  <mat-button-toggle value="4">Plik do pobrania</mat-button-toggle>
+                </mat-button-toggle-group>
+            </p>
+            <div>
+                <div class="example-full-width" appearance="fill">
+                    <mat-label>Zawartość: </mat-label>
+                    <!--<textarea matInput class="w-100" [(ngModel)]="blockCreate.content"></textarea>-->
+                    <angular-editor [placeholder]="'Enter text here...'" 
+                    [(ngModel)]="blockCreate.content" 
+                    [config]="editorConfig"
+                    style="width:100%;height:700px;"></angular-editor>
+                    <br>
+                    <br>
+                    <button mat-raised-button color="primary" (click)="addBlock(group.value)">Dodaj</button>
+                </div>
+                
+            </div>
+            <br>
+            <br>
+            <br>
+            <div>
+                <!--
+                <div class="example-full-width" appearance="fill">
+                    <mat-label>Dodaj zdjęcie: </mat-label>
+                    <input matInput class="w-100" 
+                    type="file" 
+                    class="file-input" 
+                    accept="image/png, image/jpeg" 
+                    (change)="onPhotoSelected($event)" #photoUpload>
+                </div>
+                
+                <br>
+                <button mat-raised-button color="primary" (click)="photoUpload.click()">Prześlij</button>
+                -->
+                <input type="file" class="photo-input" accept="image/png, image/jpeg" 
+                (change)="onPhotoSelected($event)" #photoUpload>
+
+                <div class="photo-upload">
+
+                {{photoLink || "Dodaj zasób 'zdjęcie'  "}}
+
+                <button mat-mini-fab color="primary" class="upload-btn"
+                (click)="photoUpload.click()">
+                <mat-icon>insert_photo</mat-icon>
+                </button>
+                
+                </div>
+                <p> {{photoName || "Tutaj pojawi się twój unikatowy link do zdjęcia"}}</p> 
+            </div>
+            <br>
+            <br>
+            {{fileName || "Dodaj plik na serwer"}}
+            <div>                
+                <input class="photo-input" type="file" accept=".pdf" 
+                (change)="onFileSelected($event, 0)" #fileUpload>
+
+                <div class="photo-upload">
+
+
+
+                <button mat-mini-fab color="primary" class="upload-btn"
+                (click)="fileUpload.click()">
+                <mat-icon>picture_as_pdf</mat-icon>
+                </button>
+                
+                </div>
+
+            </div>
+            <br>
+            <div>                
+                <input class="photo-input" type="file" accept="*.*"
+                (change)="onFileSelected($event, 1)" #fileUpload>
+
+                <div class="photo-upload">
+
+
+                <button mat-mini-fab color="primary" class="upload-btn"
+                (click)="fileUpload.click()">
+                <mat-icon>insert_drive_file</mat-icon>
+                </button>
+                
+                </div>
+                
+                
+            </div>
+            <p> {{fileLink || "Tutaj pojawi się twój unikatowy link do pliku"}}</p> 
+        </mat-card-content>
+    </mat-card>
+    
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 

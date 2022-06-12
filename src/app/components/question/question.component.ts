@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { QuizResultDialogComponent } from '../quiz-result-dialog/quiz-result-dialog.component';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-question',
@@ -21,11 +22,20 @@ export class QuestionComponent implements OnInit {
     score: 0,
     maxScore: 0
   }
+  isChecked: boolean = false;
   isCompleted: boolean = false;
   points: number = 0;
   maxPoints: number = 0;
   checkColor = 'primary';
   PytaniaTest: Question[] = [];
+  pytanieTemp: Question ={
+    questionText: '',
+    answers: []
+  }
+  answerTemp: Answer ={
+    text: '',
+    IsChecked: false
+  }
   questionIndex: number = 0;
   quizId: number = 1;
 
@@ -33,7 +43,8 @@ export class QuestionComponent implements OnInit {
     private quizService: QuizService,
     public dialog: MatDialog,
     private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loginService: LoginService
   ) {}
   ngOnInit(): void {
     //this.addAnswer({"text":"some"});
@@ -97,6 +108,33 @@ export class QuestionComponent implements OnInit {
 
   goBack():void{
     this.location.back();
+  }
+
+  
+  imAdmin(): boolean
+  {
+    if(this.loginService.getRole() == 'Admin')
+      return true
+    return false
+  }
+
+  addQuestion(){
+    //console.warn(this.pytanieTemp);
+    this.quizService.addQuestion(this.quizId, this.pytanieTemp).subscribe(
+      r => window.location.reload()
+      );
+  }
+
+  modifyQuestion(){
+    console.warn(this.PytaniaTest[this.questionIndex].questionId, this.pytanieTemp);
+  }
+
+  deleteQuestion(id: number)
+  {
+    //console.warn(id);
+    this.quizService.deleteQuestion(id).subscribe(
+      r => window.location.reload()
+      );
   }
 }
 

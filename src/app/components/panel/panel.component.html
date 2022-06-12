@@ -1,0 +1,75 @@
+<div class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
+        <div class="p-2">
+            <div  class="third">
+                <mat-card class="example-card">
+                        <mat-card-title  class="mb-3">
+                            Panel Administratora
+                        </mat-card-title>
+                    <mat-card-content *ngFor="let acc of accounts">
+                        <p class="text-justify"></p>
+
+
+                        <mat-card-content>
+                            Id: {{acc.id}}
+                            <h1 *ngIf="myId == acc.id">Twoje Konto!</h1>
+                        </mat-card-content>
+                        
+                        <mat-card-content>
+                            Email: {{acc.email}}
+                        </mat-card-content>
+                        
+                        <mat-card-content>
+                            Nazwa użytkownika: <input mat-input [(ngModel)]="acc.name">
+                        </mat-card-content>
+                        <mat-card-content>
+                            <button mat-raised-button color="primary" (click)="changeName(acc.id, acc.name)"><mat-icon>done</mat-icon></button>
+                        </mat-card-content>
+                        <mat-card-content>
+                            Typ Ucznia: {{typ(acc.learingType)}}
+                        </mat-card-content>
+
+                        <mat-label>Rola na stronie</mat-label>
+                        <mat-card-content>
+                            
+                            <mat-form-field appearance="fill">
+
+                                <mat-select [(ngModel)]="acc.role" #role>
+                                  <mat-option value="1">User</mat-option>
+                                  <mat-option value="3">Admin</mat-option>
+                                  <!--<mat-option value="3">Option 3</mat-option>-->
+                                </mat-select>
+                                {{role.value}}
+                                
+                              </mat-form-field>
+                              <mat-card-content>
+                                <button mat-raised-button color="primary" (click)="changeRole(acc.id, role.value)"><mat-icon>done</mat-icon></button>
+                            </mat-card-content>
+                        </mat-card-content>
+
+                        <mat-card-content>
+                            <button mat-raised-button color="primary" (click)="deleteUser(acc.id)"><mat-icon>delete_forever</mat-icon></button>
+                        </mat-card-content>
+                        <hr>
+                        <hr>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+
+                </mat-card>
+            </div>
+            <div  class="third">
+                <mat-card>
+                    <mat-card-content>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" routerLink="/">Powrót do menu</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>

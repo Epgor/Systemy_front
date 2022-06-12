@@ -1,3 +1,9 @@
+<br>
+<div class="ms-3" *ngIf="imAdmin()">
+    <mat-icon> border_color</mat-icon>
+    <mat-slide-toggle color="primary" [(ngModel)]="isChecked" class="pull-right d-block" ></mat-slide-toggle>
+    
+</div>
 <mat-card >
 <mat-card-title>
     <div id="wynik">
@@ -12,7 +18,7 @@
     <mat-card class="example-card">
 
         <mat-card-title>
-            
+            <button mat-button (click)="deleteQuestion(PytaniaTest[questionIndex].questionId || 0)" *ngIf="isChecked"><mat-icon>delete_outline</mat-icon></button>
         </mat-card-title>
         <mat-card-content >
             <p class="text-justify">{{questionIndex+1}}. {{PytaniaTest[questionIndex]?.questionText}}</p>
@@ -30,7 +36,7 @@
                 </mat-card-content>
             </mat-list-option>
         </mat-selection-list>
-
+        
     </mat-card>
     <mat-card>
         <mat-card-actions class="d-flex align-self-end justify-content-between">
@@ -63,3 +69,63 @@
         </mat-card-actions>
     </mat-card>
 </div>
+
+<div *ngIf="isChecked">
+    <mat-card class="example-card">
+
+        <mat-card-title>
+            
+        </mat-card-title>
+        <mat-card-content >
+            <p class="text-justify">Dodaj Pytanie</p>
+            <input class="w-100" mat-input [(ngModel)]="pytanieTemp.questionText">
+        </mat-card-content>
+        <mat-selection-list [multiple]="false">
+            <mat-list-option  *ngFor="let answer of pytanieTemp.answers">
+                <mat-card-content>
+                    <br>
+                     <mat-checkbox [color]="checkColor"
+                        [(ngModel)]="answer.IsChecked">
+                            Punktowana odpowiedź
+                        </mat-checkbox>
+                        <br>
+
+                    <input class="w-100" mat-input [(ngModel)]="answer.text">
+                    <br>
+                    <br>
+                </mat-card-content>
+            </mat-list-option>
+            <button mat-button (click)="pytanieTemp.answers.push({text: 'Treść odpowiedzi',IsChecked: false})"><mat-icon>add</mat-icon></button>
+        </mat-selection-list>
+
+    </mat-card>
+    <mat-card>
+        <mat-card-actions class="d-flex align-self-end justify-content-between">
+            <button mat-raised-button color="primary" (click)="addQuestion()">
+                Dodaj
+            </button>
+            <!--
+            <button mat-raised-button color="primary" (click)="modifyQuestion()">
+                Modyfikuj
+            </button>
+            -->
+            </mat-card-actions>
+    </mat-card>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

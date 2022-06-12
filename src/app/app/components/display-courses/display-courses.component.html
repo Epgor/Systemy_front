@@ -1,0 +1,61 @@
+<div class="ms-3 text text-center">
+<h2 class="center"> Lista kursów </h2>
+<div class="d-flex align-items-center justify-content-center mb-3">
+    <label for="new-course" class="me-3">Nazwa kursu: </label>
+    <input id="new-course" class="w-50" #courseName />
+    
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button mat-icon-button type="button" color="primary" (click)="add(courseName.value); courseName.value=''">
+      <mat-icon>add</mat-icon>
+    </button>
+</div>
+</div>
+<!--
+<div class="container">
+  <div class="row">
+  <div class="col-sm-2" *ngFor="let course of courses">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+          <a routerLink="/detail/{{course.id}}">
+              <span>{{course.id}}</span>{{course.title}}
+          </a>
+        </div>
+          <button mat-mini-fab type="button" color="primary" title="delete course"
+          (click)="delete(course)"><mat-icon>delete</mat-icon></button>
+        </div>
+        </div>
+      </div>
+</div>
+</div>
+-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-3 mw-100" *ngFor="let course of courses">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <a routerLink="/detail/{{course.id}}">
+              {{course.title | uppercase}}
+            </a>
+          </mat-card-title>
+          <mat-card-subtitle >
+            <a routerLink="/detail/{{course.id}}">
+              <p clss="ms-2">Id kursu: {{course.id}}</p>
+            </a>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="ms-3">
+          {{course.desc}}
+        </mat-card-content>
+        <mat-card-actions align="end" class="p-3">
+          <button mat-mini-fab type="button" color="primary" title="delete course"
+            (click)="delete(course)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

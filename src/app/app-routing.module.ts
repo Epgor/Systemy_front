@@ -16,6 +16,12 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { GlitchComponent } from './components/glitch/glitch.component';
 import { BootstrapPageComponent } from './components/bootstrap-page/bootstrap-page.component';
 import { InitQuizComponent } from './components/init-quiz/init-quiz.component';
+import { EditArticleComponent } from './components/edit-article/edit-article.component';
+import { EditQuizComponent } from './components/edit-quiz/edit-quiz.component';
+import { ForumComponent } from './components/forum/forum.component';
+import { CzatComponent } from './components/czat/czat.component';
+import { PostyComponent } from './components/posty/posty.component';
+import { PanelComponent } from './components/panel/panel.component';
 
 
 const routes: Routes = [
@@ -35,8 +41,14 @@ const routes: Routes = [
   { path: 'quiz/:id', component: QuizComponent },
   { path: 'glitch', component: GlitchComponent},
   { path: 'bootstrap-page', component: BootstrapPageComponent},
-  { path: 'init-quiz', component: InitQuizComponent },
-  { path: '**', redirectTo: '/dashboard'},
+  { path: 'init-quiz', component: InitQuizComponent }, 
+  { path: 'article-edit/:id', component: EditArticleComponent},
+  { path: 'quiz-edit/:id', component: EditQuizComponent },
+  { path: 'forum', component: ForumComponent },
+  { path: 'chat', component: CzatComponent },
+  { path: 'forum/:id', component: PostyComponent },
+  { path: 'admin', component: PanelComponent },
+  { path: '**', redirectTo: '/dashboard'}
 ];
 
 @NgModule({

@@ -1,0 +1,50 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl,FormGroup } from '@angular/forms';
+import { FormArray } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+@Component({
+  selector: 'app-question',
+  templateUrl: './question.component.html',
+  styleUrls: ['./question.component.css']
+})
+export class QuestionComponent implements OnInit {
+  Odpowiedzi = ["1 == 1", "1 == 2", "1=='1'", "1==='1'"];
+  
+  profileForm = this.fb.group({
+    firstName: [''],
+    lastName: [''],
+    address: this.fb.group({
+      street: [''],
+      city: [''],
+      state: [''],
+      zip: ['']
+    }),
+    aliases: this.fb.array([
+      this.fb.control('')
+    ])
+  });
+  ngOnInit(): void {
+    
+  
+  }
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileForm.value);
+  }
+
+  get aliases() {
+    return this.profileForm.get('aliases') as FormArray;
+  }
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
+  }
+  updateProfile() {
+    this.profileForm.patchValue({
+      firstName: 'Nancy',
+      address: {
+        street: '123 Drew Street'
+      }
+    });
+  }
+  constructor(private fb: FormBuilder) { }
+}

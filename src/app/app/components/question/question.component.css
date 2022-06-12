@@ -1,0 +1,11 @@
+.third{
+    min-width: 33%;
+}
+.example-card {
+    min-width: 450px;
+    min-height: 320px;
+    max-width: 1000px;
+}
+button{
+    min-width:30%;
+}

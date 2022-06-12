@@ -73,4 +73,60 @@ export class QuizService {
     return quizzes;
   }
 
+  addQuiz(courseId: number, title: string): Observable<any>{
+    let url = `https://localhost:7038/api/quiz/${courseId}`;
+
+    return this.http.post(url, {"text": title},httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  deleteQuiz(quizId: number): Observable<any>{
+    let url = `https://localhost:7038/api/quiz/${quizId}`;
+
+    return this.http.delete(url, httpOptions).pipe(catchError(this.handleError));
+  }
+
+  getQuiz(id: number): Observable<Quiz>{
+    let url = `https://localhost:7038/api/quiz/get/${id}`;
+
+    const quiz = this.http.get<Quiz>(url, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+
+    return quiz;
+  }
+
+  editQuiz(quizId: number, qtext: string): Observable<any>{
+    let url = `https://localhost:7038/api/quiz/${quizId}`;
+
+    return this.http.put(url, {'text': qtext}, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  addQuestion(quizId: number, question: Question)
+  {
+    let url = `https://localhost:7038/api/quiz/${quizId}/questions`;
+    return this.http.post(url, question, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  
+  }
+
+  deleteQuestion(questionId: number)
+  {
+    let url = `https://localhost:7038/api/quiz/questions/${questionId}`;
+    return this.http.delete(url, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  
+  }
+
+
 }

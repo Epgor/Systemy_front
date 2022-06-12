@@ -92,8 +92,5 @@ export class CourseService {
     )
   }
 
-  addCourseDetail(mainCourse: number, isEye: boolean, isEar: boolean, isWork: boolean, text: string ){
-    let url = '';
-    console.warn(`Created ${isEar}|${isEye}|${isWork} for Course: ${mainCourse}, with title ${text}`)
-  }
+
 }

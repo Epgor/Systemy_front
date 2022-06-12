@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+<mat-card class="col-sm-3 mt-3">
+    
+        <mat-card-title class="mb-3">
+            <!--<h2>{{course?.title}}</h2>-->
+            Edytuj lekcję
+        </mat-card-title>
+    
+    <mat-card-content *ngIf="article">
+        <div>
+            <div class="example-full-width" appearance="fill">
+                <mat-label>Tytuł lekcji  </mat-label>
+                <input matInput [(ngModel)]="article.text">
+            </div>
+            <br>
+            <label for="scales"  class="mb-2">Uczestnik lecji, to:</label>
+        </div>
+        <mat-checkbox color="primary" [(ngModel)]="isEye">Wzrokowiec</mat-checkbox>
+        <br>
+        <mat-checkbox color="primary" [(ngModel)]="isEar">Słuchowiec</mat-checkbox>
+        <br>
+        <mat-checkbox color="primary" [(ngModel)]="isWork">Działaniowiec</mat-checkbox>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions align="end">
+        <button mat-button type="button" color="primary" (click)="editArticle()">Zapisz</button>
+    </mat-card-actions>
+</mat-card>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>

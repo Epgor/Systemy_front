@@ -1,19 +1,49 @@
-<div *ngIf="!isLoggedIn">
-    <app-login-page ></app-login-page>
-</div>
-<div *ngIf="isLoggedIn">
-<h1>{{title}}</h1>
-<nav>
-    <a routerLink="/courses">Kursy</a>
-    <a routerLink="/dashboard">Strona Główna</a>
-    <button (click)="logOut()">Wyloguj</button>
-    <button (click)="whoAmI()">Kim Jestem?</button>
-    <button (click)="myType()">Mój Typ?</button>
 
-</nav>
+<div [className]="dark() ? 'dark-theme' : ''">
+  <div class="mat-app-background">
+    <div *ngIf="!isLoggedIn">
+        <app-login-page ></app-login-page>
+    </div>
+    <div *ngIf="isLoggedIn">
+    
+      <mat-sidenav-container>
+          <mat-sidenav #sidenav role="navigation">
+            <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+          </mat-sidenav>
+          <mat-sidenav-content>
+            <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
 
-<router-outlet></router-outlet>
+          </mat-sidenav-content>
+      </mat-sidenav-container>
+      
+      <router-outlet class="h-100"></router-outlet>
+      <div class="h-100">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+      </div>
+    </div>
+  </div>
 </div>
+
 <!--
     login page
 <div *ngIf="!isLoggedIn">

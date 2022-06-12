@@ -1,0 +1,54 @@
+<br>
+<div class="ms-3" *ngIf="imAdmin()">
+    <mat-icon> border_color</mat-icon>
+    <mat-slide-toggle color="primary" [(ngModel)]="isChecked" class="pull-right d-block" ></mat-slide-toggle>
+    
+</div>
+<div class="container">
+    <div class="row">
+        <mat-card>
+            <p class="d-flex justify-content-end">{{forum.author}}/{{forum.data}}</p>
+            <mat-card-title>{{forum.title}}</mat-card-title>
+            <mat-card-subtitle class="ms-2">Id: 2</mat-card-subtitle>
+            <mat-card-content>
+                {{forum.text}}
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <h2 class="mt-5">Komentarze:</h2>
+            <div *ngFor="let wpis of post">
+                <div class="komentarz border mt-3">
+                    <p class="d-flex justify-content-end mt-2 me-3">{{wpis.data}}</p>
+                    <mat-card-content class="d-flex align-items-center border-bottom">
+                        <div mat-card-avatar class="example-header-image ms-3 me-2 mb-2"></div>
+                        <p class="mb-2"><strong>{{wpis.author}}</strong></p>
+                    </mat-card-content>
+                    <div class="ms-3 mb-3 me-3">{{wpis.text}}</div>
+                </div>
+                <button mat-button (click)="deletePost(wpis.id)" *ngIf="isChecked"><mat-icon>delete_outline</mat-icon></button>
+            </div>
+            <!--
+            <div class="komentarz border mt-3">
+                <p class="d-flex justify-content-end mt-2 me-3">data: 21.04.2022</p>
+                <mat-card-content class="d-flex align-items-center border-bottom">
+                    <div mat-card-avatar class="example-header-image ms-3 me-2 mb-2"></div>
+                    <p class="mb-2"><strong>Nazwa użytkownika</strong></p>
+                </mat-card-content>
+                <div class="ms-3 mb-3 me-3">Jakiś komentarz tego użytkownika, który wypowiada się na temat postu</div>
+            </div>
+            <div class="komentarz border mt-3">
+                <p class="d-flex justify-content-end mt-2 me-3">data: 21.04.2022</p>
+                <mat-card-content class="d-flex align-items-center border-bottom">
+                    <div mat-card-avatar class="example-header-image ms-3 me-2 mb-2"></div>
+                    <p class="mb-2"><strong>Nazwa użytkownika</strong></p>
+                </mat-card-content>
+                <div class="ms-3 mb-3 me-3">Jakiś komentarz tego użytkownika, który wypowiada się na temat postu</div>
+            </div>
+             -->
+            <div class="mt-3 d-flex align-items-center" >
+                <input class="w-100" #wpis>
+                <button mat-button color="primary" (click)="addPost(wpis.value)">Dodaj komentarz</button>
+            </div>
+           
+        </mat-card>
+    </div>
+</div>

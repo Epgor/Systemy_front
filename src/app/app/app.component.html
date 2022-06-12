@@ -1,0 +1,28 @@
+<!--<div>
+<h1>{{title}}</h1>
+<nav>
+    <a routerLink="/courses">Kursy</a>
+    <a routerLink="/dashboard">Strona Główna</a>
+    <button (click)="logOut()">Wyloguj</button>
+    <button (click)="whoAmI()">Kim Jestem?</button>
+    <button (click)="myType()">Mój Typ?</button>
+    <a routerLink="/init-quiz">VAK quiz</a>
+</nav>
+
+<router-outlet></router-outlet>
+</div>-->
+
+
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav role="navigation">
+        <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+        <main>
+          <router-outlet></router-outlet>
+        </main>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    

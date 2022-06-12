@@ -1,0 +1,12 @@
+<mat-nav-list>
+    <a mat-list-item routerLink="/dashboard" (click)="onSidenavClose()">
+        <mat-icon>home</mat-icon> <span class="nav-caption">Strona główna</span>   
+    </a>
+    <a mat-list-item routerLink="/courses" (click)="onSidenavClose()">
+        <mat-icon>collections_bookmark</mat-icon> <span class="nav-caption">Kursy</span>
+    </a>
+
+    <button mat-list-item (click)="logOut()">
+        <mat-icon>logout</mat-icon><span class="nav-caption">Wyloguj</span>
+    </button>
+  </mat-nav-list>

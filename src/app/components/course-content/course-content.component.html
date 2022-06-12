@@ -1,36 +1,135 @@
 
+<br>
+<div class="ms-3" *ngIf="imAdmin()">
+    <mat-icon> border_color</mat-icon>
+    <mat-slide-toggle color="primary" [(ngModel)]="isChecked" class="pull-right d-block" ></mat-slide-toggle>
+    
+</div>
+<br>
+<br>
+<br>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Nr. Lekcji</th>
-            <th scope="col">Tytuł</th>
-            <th scope="col"></th>
+<div class="d-flex justify-content-center">
+
+  <div class="mat-elevation-z8">
+    <p *ngIf="isChecked">
+    <button mat-raised-button="primary" routerLink="/course/{{id}}/content"><mat-icon>add</mat-icon></button>
+    Dodaj lekcję
+    </p>
+      <table mat-table [dataSource]="articleList" matSort>
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let row; let i = index"> {{i + 1}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="quiz">
+          <th mat-header-cell *matHeaderCellDef> Nazwa Lekcji </th>
+          <td mat-cell *matCellDef="let row"> {{row.text}} </td>
+        </ng-container>
+    
+
+        <ng-container matColumnDef="actionDel">
+          <th mat-header-cell  *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let row" >
+            <tr *ngIf="isChecked">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="deleteArticle(row.id)">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+              <button mat-menu-item routerLink="/article-edit/{{row.id}}">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+            </mat-menu>
+              
+                
+              </tr>
+          </td>
+
+        </ng-container>
+        <ng-container matColumnDef="actionEdit">
+          <th mat-header-cell  *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let row" >
+            <button mat-stroked-button routerLink="/article/{{row.id}}"><mat-icon>open_in_new</mat-icon></button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+      </table>
+
+  </div>
+</div>
+
+
+
+
+<br>
+<br>
+<br>
+
+
+
+
+<div class="d-flex justify-content-center">
+    
+    <div class="mat-elevation-z8">
+      
+        <table mat-table [dataSource]="quizList" matSort>
+      
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let row; let i = index"> {{i + 1}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="quiz">
+            <th mat-header-cell *matHeaderCellDef> Nazwa Quizu </th>
+            <td mat-cell *matCellDef="let row"> {{row.text}} </td>
+          </ng-container>
+      
+
+          <ng-container matColumnDef="actionDel">
+            <th mat-header-cell  *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row" >
+              <tr *ngIf="isChecked">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="delete(row.id)">
+                  <mat-icon>delete_outline</mat-icon>
+                </button>
+                <button mat-menu-item routerLink="/quiz-edit/{{row.id}}">
+                  <mat-icon>edit</mat-icon>
+                </button>
+
+              </mat-menu>
+ 
+                </tr>
+            </td>
+
+          </ng-container>
+          <ng-container matColumnDef="actionEdit">
+            <th mat-header-cell  *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row" >
+              <button mat-stroked-button routerLink="/quiz/{{row.id}}"><mat-icon>open_in_new</mat-icon></button>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <tr *ngIf="isChecked">
+          <th>Dodaj Quiz</th>
+          <td>Nazwa:</td>
+          <input class="szeroka" type="text" #quizName>
+          <td><button (click)="addQuiz(quizName.value)"><mat-icon>add</mat-icon></button></td>
         </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let list of articleList">
-            <th scope="row">{{list.id}}</th>
-            <td>{{list.text}}</td>
-            <td><button routerLink="/article/{{list.id}}"> Otwórz </button></td>
-        </tr>
-    </tbody>
-</table>
 
-<table class="table table-striped">
-  <thead>
-      <tr>
-          <th scope="col">Nr. Testu</th>
-          <th scope="col">Tytuł</th>
-          <th scope="col"></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr *ngFor="let list of quizList">
-          <th scope="row">{{list.id}}</th>
-          <td>{{list.text}}</td>
-          <td><button routerLink="/quiz/{{list.id}}"> Rozwiąż </button></td>
-      </tr>
-  </tbody>
-</table>
-
+    </div>
+  </div>

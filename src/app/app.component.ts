@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoginService } from './services/login.service';
 import { Subscription } from 'rxjs';
 import { RequestService } from './services/request.service';
+import { DarkModeService } from './services/dark-mode.service';
 
 
 @Component({
@@ -12,10 +13,10 @@ import { RequestService } from './services/request.service';
 export class AppComponent {
   title = 'Platforma e-learningowa';
   isLoggedIn: boolean = false;
-
+  isDark: boolean = false;
   subscription: Subscription;
 
-  constructor(private loginService: LoginService, private requestService: RequestService) {
+  constructor(private loginService: LoginService, private requestService: RequestService, private themeService: DarkModeService) {
     this.subscription = this.loginService
     .onToggle()
     .subscribe((value) => (this.isLoggedIn = value))
@@ -34,18 +35,8 @@ export class AppComponent {
     // Unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
 }
-  logOut(){
-    this.loginService.logOut();
-    this.isLoggedIn = false;
-    window.alert('bye!');
-  }
-  whoAmI(){
-    this.loginService.helloUser();
+  dark(): boolean{
+    return this.themeService.getTheme();
   }
 
-  myType(){
-
-    this.loginService.getMyType()
-    //this.requestService.getUserTy;pe();
-  }
 }

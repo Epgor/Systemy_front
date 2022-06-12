@@ -1,29 +1,55 @@
 
 label {
-    color: #435960;
-    font-weight: bold;
-    
-  }
-  input {
-    font-size: 1em;
-    padding: .5rem;
-  }
-  button {
-    margin-top: 20px;
-    background-color: #eee;
-    padding: 1rem;
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  button:hover {
-    background-color: #cfd8dc;
-  }
-  button:disabled {
-    background-color: #eee;
-    color: #ccc;
-    cursor: auto;
-  }
 
-  .left-pad {
-    text-align: center;
-  }
+  font-weight: bold;
+  
+}
+input {
+  font-size: 1em;
+  padding: .5rem;
+}
+/*button {
+  margin-top: 20px;
+  background-color: #eee;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}*/
+
+/*.left-pad {
+  /*text-align: center;
+  max-width: 800px;
+  
+}*/
+
+
+/*
+.course-card{
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}*/
+
+
+
+.card {
+  max-width: 1200px;
+}
+
+mat-card-title {
+  justify-content: center;
+  
+}
+
+textarea {
+  margin-top: 15px;
+  max-width: 100%;
+}

@@ -60,6 +60,69 @@ export class ArticleService {
 
     return blocks;
   }
+
+  getArticle(articleId: number): Observable<Article> {
+    let url = `https://localhost:7038/api/article/get/${articleId}`
+
+    const article = this.http.get<Article>(url, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+
+    return article;
+  }
   
+  editArticle(articleId: number, atext: string, typ: number): Observable<any> {
+    let url = `https://localhost:7038/api/article/${articleId}`;
+
+    return this.http.put(url, {'text': atext, 'learningType': typ}, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+
+
+  }
+
+  deleteArticle(id: number): Observable<any> {
+    let url =`https://localhost:7038/api/article/${id}`;
+
+    return this.http.delete(url, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  addArticle(courseId: number, article: Article): Observable<any> {
+    let url = `https://localhost:7038/api/article/${courseId}`;
+
+    return this.http.post(url, {"text": article.text, "learningType": article.learningType}, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  addBlock(articleId: number, title: string, content: string, type: number): Observable<any>
+  {
+    let url = `https://localhost:7038/api/article/blocks/${articleId}`;
+
+    return this.http.post(url, {"title": title, "content": content, "type": type}, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  deleteBlock(id: number)
+  {
+    let url = `https://localhost:7038/api/article/blocks/${id}`;
+
+    return this.http.delete(url, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  addPhoto(photo: File)
+  {
+    let url = `https://localhost:7038/image`;
+
+    return this.http.post(url, photo, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
 
 }

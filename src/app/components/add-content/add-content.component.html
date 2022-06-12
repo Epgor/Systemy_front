@@ -1,38 +1,35 @@
-
-<button type="button" 
-(click)="goBack()">
-Cofnij
-</button>
-<div class="form">
-    <h2>{{course?.title}}</h2>
-    <fieldset>
-        <legend>Tworzenie Kursu</legend>
+<div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+<mat-card class="col-sm-3 mt-3">
+ 
+        <mat-card-title class="mb-3">
+            <!--<h2>{{course?.title}}</h2>-->
+            Tworzenie Lekcji
+        </mat-card-title>
+ 
+    <mat-card-content>
         <div>
-            <input id="course-title" placeholder="Text" [(ngModel)]="text">
+            <input id="course-title" placeholder="Text" [(ngModel)]="text" class="mb-3">
+            <br>
+            <label for="scales"  class="mb-2">Typ Kursu:</label>
         </div>
-        <div>
-            <label for="scales">Typ Kursu:</label>
-        </div>
-        <div>
-            <input type="checkbox" id="eye" name="eye" [(ngModel)]="isEye">
-            <label for="eye">Wzrokowiec</label>
-        </div>
-        <div>
-            <input type="checkbox" id="ear" name="ear" [(ngModel)]="isEar">
-            <label for="ear">Słuchowiec</label>
-        </div>
-        <div>
-            <input type="checkbox" id="work" name="work" [(ngModel)]="isWork">
-            <label for="work">Działaniowiec</label>
-        </div>
-        <div>
-            <button type="button"(click)="create()">Dodaj</button>
-        </div>
-    </fieldset>
-    <div>
-        na spodzie formularza
-    </div>
+        <mat-checkbox color="primary" [(ngModel)]="isEye">Wzrokowiec</mat-checkbox>
+        <br>
+        <mat-checkbox color="primary" [(ngModel)]="isEar">Słuchowiec</mat-checkbox>
+        <br>
+        <mat-checkbox color="primary" [(ngModel)]="isWork">Działaniowiec</mat-checkbox>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions align="end">
+        <button mat-raised-button type="button" color="primary" (click)="create()">Dodaj</button>
+    </mat-card-actions>
+</mat-card>
 </div>
-<div class="form">
-    sztopka
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

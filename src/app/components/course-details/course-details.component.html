@@ -1,32 +1,40 @@
-<button type="button" 
-    (click)="goBack()">
-    Cofnij
-</button>
-<button *ngIf="course" type="button" routerLink="/course/{{course.id}}/content/lining">
-    Rozpocznij Kurs
-</button>
-<div *ngIf="course" class="left-pad">
+<br>
+<div class="ms-3" *ngIf="imAdmin()">
+    <mat-icon> border_color</mat-icon>
+    <mat-slide-toggle color="primary" [(ngModel)]="isChecked" class="pull-right d-block" ></mat-slide-toggle>
     
-    <h2>{{course.title | uppercase}} </h2>
-    <div><span>id: </span>{{course.id}}</div>
-    <div>
-      <label for="course-title">Nazwa Kursu: </label>
-      <input id="course-title" [(ngModel)]="course.title" placeholder="title"/>
-    </div>
-    <div>
-        <label for="course-desc">Opis Kursu:</label>
-    </div>
-    <span>{{course.desc}}</span>
-    <div><p></p></div>
-    <div>
-        <textarea id="course-desc" [(ngModel)]="course.desc" 
-        placeholder="description" rows="10" cols="80">
-        </textarea>
-    </div>
-    <button type="button" (click)="save(course)">Zapisz</button>
+</div>
+<div class="d-flex align-items-center justify-content-center mt-3">
+    <mat-card *ngIf="course" class="card">
+        
+        <mat-card-header class="head">
+            <mat-card-title>{{course.title | uppercase}}</mat-card-title>
+            <mat-card-subtitle>id: {{course.id}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="ms-3 me-3">
+            <div *ngIf="isChecked">
+                <label for="course-title" class="me-3">Nazwa Kursu: </label>
+                <input id="course-title" [(ngModel)]="course.title" placeholder="title"/>
+            </div>
+                <label for="course-desc">Opis Kursu:</label>
+            <div *ngIf="isChecked">
+                <textarea id="course-desc" [(ngModel)]="course.desc" 
+                placeholder="description" rows="10" cols="80">
+                </textarea>
+            </div >
+            <div *ngIf="!isChecked">
+                {{course.desc}}
+            </div>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions align="end" *ngIf="isChecked">
+            <button mat-button type="button" color="primary" (click)="save(course)">Zapisz</button>
 
-    <button type="button" routerLink="/edition/{{course.id}}">Edycja</button>
-
-    <button type="button" routerLink="/course/{{course.id}}/content">Dodaj zawartość</button>
-    
+        </mat-card-actions>
+    </mat-card>
+</div>
+<div class="text-center mt-5">
+    <button *ngIf="course" mat-raised-button color="primary" routerLink="/course/{{course.id}}/content/lining">
+        Rozpocznij Kurs
+    </button>
 </div>

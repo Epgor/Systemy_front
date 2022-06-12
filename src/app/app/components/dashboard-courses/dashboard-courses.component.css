@@ -1,0 +1,16 @@
+/* DashboardComponent's private CSS styles */
+
+h1 {
+    text-align: center;
+  }
+  
+.example-card{
+
+  min-width: 50%;
+}
+img{
+  display: flex;
+  object-fit: cover;
+  width: 100%;
+  height: 250px;
+}

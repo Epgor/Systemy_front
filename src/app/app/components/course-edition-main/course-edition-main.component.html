@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+<button type="button" 
+    (click)="goBack()">
+    Cofnij
+</button>
+<div *ngIf="course">
+    <h2>{{course.title}}</h2>
+    <nav>
+        <a routerLink="/ear/{{course.id}}">Słuchowiec</a>
+        <a routerLink="/eye/{{course.id}}">Wzrokowiec</a>
+        <a routerLink="/work/{{course.id}}">Działaniowiec</a>
+    </nav>
+</div>
+<div *ngIf="!course">
+    Kurs Nie Istnieje!
+</div>
